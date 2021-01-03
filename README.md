@@ -23,4 +23,25 @@ stripe/fs5  compression    zle       local
 stripe/fs5  compressratio  1.16x     -
 ```
 2. Определить настройки pool’a
+
+Параметры пула Otus
+```
+zpool list
+
+NAME     SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+otus     480M  2.11M   478M        -         -     0%     0%  1.00x    ONLINE  -
+
+zfs get type,recordsize,compression,checksum
+
+NAME            PROPERTY     VALUE       SOURCE
+otus            type         filesystem  -
+otus            recordsize   128K        local
+otus            compression  zle         local
+otus            checksum     sha256      local
+otus/hometask2  type         filesystem  -
+otus/hometask2  recordsize   128K        inherited from otus
+otus/hometask2  compression  zle         inherited from otus
+otus/hometask2  checksum     sha256      inherited from otus
+```
+
 3. Найти сообщение от преподавателей
