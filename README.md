@@ -44,5 +44,6 @@ otus/hometask2  checksum     sha256      inherited from otus
 
 
 Внутри ссылка на GitHub - https://github.com/sindresorhus/awesome
+
 Путь до файла - /otus/storage/task1/file_mess
 
