@@ -28,7 +28,7 @@ zfs set compress=lzjb stripe/fs4
 zfs set compression=on stripe/fs5
 zfs set compress=zle stripe/fs5
 
-# Скачиваение архива ядра Linux и раскаповка 
+# Скачиваение архива ядра Linux и его распаковка 
 cd /
 mkdir /kernel_sources
 cd /kernel_sources
