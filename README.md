@@ -34,10 +34,6 @@ otus     480M  2.11M   478M        -         -     0%     0%  1.00x    ONLINE  -
 zfs get type,recordsize,compression,checksum
 
 NAME            PROPERTY     VALUE       SOURCE
-otus            type         filesystem  -
-otus            recordsize   128K        local
-otus            compression  zle         local
-otus            checksum     sha256      local
 otus/hometask2  type         filesystem  -
 otus/hometask2  recordsize   128K        inherited from otus
 otus/hometask2  compression  zle         inherited from otus
