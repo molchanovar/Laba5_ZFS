@@ -4,8 +4,6 @@ export/import + adjust pools
 
 1. Определить алгоритм с наилучшим сжатием (gzip, gzip-N, zle, lzjb, lz4)
 
-Подробнее в файле <b>Compression.txt</b>
-
 Лучшее сжатие у gzip-9 (на примере сжатия ядра linux) 
 ```
 zfs get compression,compressratio
@@ -26,8 +24,6 @@ stripe/fs5  compressratio  1.16x     -
 ```
 2. Определить настройки pool’a
 
-Описания шагов в файле <b>zpoolexport.txt</b>
-
 Параметры пула Otus
 ```
 zpool list
@@ -46,10 +42,13 @@ otus/hometask2  checksum     sha256      inherited from otus
 
 3. Cообщение от преподавателей (файл secret_message)
 
-Шаги по восстановлению в файле <b>secret_message</b>
-
 Внутри ссылка на GitHub - https://github.com/sindresorhus/awesome
 
 Путь до файла - /otus/storage/task1/file_mess
 
-Файл <b>Script_ZFS_install.sh</b> - шаги установки zfs (kABI-tracking kmod)
+
+### Шаги выполнения Д/З:
+1. Поиск лучшего алгоритма сжатия <b>Compression.txt</b>
+2. Определение параметров пула <b>zpoolexport.txt</b>
+3. Поиск сообщения в Snapshot'е <b>secret_message</b>
+4. <b>Script_ZFS_install.sh</b> - Установка zfs (kABI-tracking kmod)
