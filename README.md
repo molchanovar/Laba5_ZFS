@@ -48,7 +48,8 @@ otus/hometask2  checksum     sha256      inherited from otus
 
 
 ### Шаги выполнения Д/З:
-1. Поиск лучшего алгоритма сжатия <b>Compression.txt</b>
-2. Определение параметров пула <b>zpoolexport.txt</b>
-3. Поиск сообщения в Snapshot'е <b>secret_message</b>
-4. <b>Script_ZFS_install.sh</b> - Установка zfs (kABI-tracking kmod)
+0. <b>Script_ZFS_install.sh</b> - Установка zfs (kABI-tracking kmod)
+1. <b>Compression.txt</b> - Поиск лучшего алгоритма сжатия 
+2. <b>zpoolexport.txt</b> - Определение параметров пула 
+3. <b>secret_message</b> - Поиск сообщения в Snapshot'е 
+
