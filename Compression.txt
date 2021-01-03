@@ -1,0 +1,61 @@
+# Создан stripe из дисков sd{a,b}
+zpool create stripe /dev/sd{a,b}
+
+# Созданы 5 вложенных файловых систем zfs со сжатием данных (gzip/ gzip-9/ lz4/ lzjb/ zle) 
+zfs create stripe/fs1
+zfs create stripe/fs2
+zfs create stripe/fs3
+zfs create stripe/fs4
+zfs create stripe/fs5
+
+# compressed gzip
+zfs set compression=on stripe/fs1 
+zfs set compress=gzip stripe/fs1
+
+# compressed gzip-9
+zfs set compression=on stripe/fs2
+zfs set compress=gzip-9 stripe/fs2
+
+# compressed lz4
+zfs set compression=on stripe/fs3
+zfs set compress=lz4 stripe/fs3
+
+# compressed lzjb
+zfs set compression=on stripe/fs4
+zfs set compress=lzjb stripe/fs4
+
+# compressed zle
+zfs set compression=on stripe/fs5
+zfs set compress=zle stripe/fs5
+
+# Скачиваение архива для сжатия 
+mkdir /downloads
+cd /downloads
+curl -O http://ftp.mgts.by/pub/gnu/bash/bash-5.0.tar.gz
+tar -xzf bash-5.0.tar.gz 
+
+# Копируем распакованный архив для оценки компресии разных алгоритмов сжатия 
+cp -R bash-5.0 /stripe/fs1
+cp -R bash-5.0 /stripe/fs2
+cp -R bash-5.0 /stripe/fs3
+cp -R bash-5.0 /stripe/fs4
+cp -R bash-5.0 /stripe/fs5
+
+zfs get compression,compressratio
+
+# Результат компресии
+NAME        PROPERTY       VALUE     SOURCE
+stripe      compression    off       default
+stripe      compressratio  2.08x     -
+stripe/fs1  compression    gzip      local
+stripe/fs1  compressratio  3.35x     -
+stripe/fs2  compression    gzip-9    local
+stripe/fs2  compressratio  3.36x     -
+stripe/fs3  compression    lz4       local
+stripe/fs3  compressratio  2.27x     -
+stripe/fs4  compression    lzjb      local
+stripe/fs4  compressratio  1.91x     -
+stripe/fs5  compression    zle       local
+stripe/fs5  compressratio  1.18x     -
+
+# Лучшее сжатие у алгоритма gzip-9
