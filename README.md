@@ -4,6 +4,8 @@ export/import + adjust pools
 
 1. Определить алгоритм с наилучшим сжатием (gzip, gzip-N, zle, lzjb, lz4)
 
+Подробнее в файле <b>Compression.txt</b>
+
 Лучшее сжатие у gzip-9 (на примере сжатия ядра linux) 
 ```
 zfs get compression,compressratio
