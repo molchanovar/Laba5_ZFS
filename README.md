@@ -41,3 +41,6 @@ otus/hometask2  checksum     sha256      inherited from otus
 ```
 
 3. Найти сообщение от преподавателей
+Внутри ссылка на GitHub - https://github.com/sindresorhus/awesome
+
+
