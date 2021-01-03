@@ -40,7 +40,7 @@ otus/hometask2  compression  zle         inherited from otus
 otus/hometask2  checksum     sha256      inherited from otus
 ```
 
-3. Найти сообщение от преподавателей (файл secret_message)
+3. Cообщение от преподавателей (файл secret_message)
 
 
 Внутри ссылка на GitHub - https://github.com/sindresorhus/awesome
