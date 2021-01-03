@@ -1,0 +1,40 @@
+# Импортирование скачанного и распакованного раздела
+zpool import -d /downloads/zpoolexport/
+zpool import -d /downloads/zpoolexport/ otus
+
+zpool status
+  pool: otus
+ state: ONLINE
+  scan: none requested
+config:
+
+	NAME                              STATE     READ WRITE CKSUM
+	otus                              ONLINE       0     0     0
+	  mirror-0                        ONLINE       0     0     0
+	    /downloads/zpoolexport/filea  ONLINE       0     0     0
+	    /downloads/zpoolexport/fileb  ONLINE       0     0     0
+
+errors: No known data errors
+
+# Вся информация об импортированном пуле
+zfs get all
+
+# Размер хрнаилища 480 МБ
+zpool list
+
+NAME     SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+otus     480M  2.11M   478M        -         -     0%     0%  1.00x    ONLINE  -
+
+# Параметры пула: type, recordsize, compression, checksum
+zfs get type,recordsize,compression,checksum
+
+NAME            PROPERTY     VALUE       SOURCE
+otus            type         filesystem  -
+otus            recordsize   128K        local
+otus            compression  zle         local
+otus            checksum     sha256      local
+otus/hometask2  type         filesystem  -
+otus/hometask2  recordsize   128K        inherited from otus
+otus/hometask2  compression  zle         inherited from otus
+otus/hometask2  checksum     sha256      inherited from otus
+
