@@ -26,6 +26,8 @@ stripe/fs5  compressratio  1.16x     -
 ```
 2. Определить настройки pool’a
 
+Описания шагов в файле <b>zpoolexport.txt</b>
+
 Параметры пула Otus
 ```
 zpool list
@@ -44,8 +46,10 @@ otus/hometask2  checksum     sha256      inherited from otus
 
 3. Cообщение от преподавателей (файл secret_message)
 
+Шаги по восстановлению в файле <b>secret_message</b>
 
 Внутри ссылка на GitHub - https://github.com/sindresorhus/awesome
 
 Путь до файла - /otus/storage/task1/file_mess
 
+Файл <b>Script_ZFS_install.sh</b> - шаги установки zfs (kABI-tracking kmod)
