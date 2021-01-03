@@ -3,6 +3,7 @@ export/import + adjust pools
 
 
 1. Определить алгоритм с наилучшим сжатием (gzip, gzip-N, zle, lzjb, lz4)
+
 Лучшее сжатие у gzip-9 (на примере сжатия ядра linux) 
 ```
 NAME        PROPERTY       VALUE     SOURCE
