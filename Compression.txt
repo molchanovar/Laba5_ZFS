@@ -28,34 +28,36 @@ zfs set compress=lzjb stripe/fs4
 zfs set compression=on stripe/fs5
 zfs set compress=zle stripe/fs5
 
-# Скачиваение архива для сжатия 
-mkdir /downloads
-cd /downloads
-curl -O http://ftp.mgts.by/pub/gnu/bash/bash-5.0.tar.gz
-tar -xzf bash-5.0.tar.gz 
+# Скачиваение архива ядра Linux и раскаповка 
+cd /
+mkdir /kernel_sources
+cd /kernel_sources
+curl -O https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.4.tar.xz
+tar -xJf linux-5.10.4.tar.xz
 
-# Копируем распакованный архив для оценки компресии разных алгоритмов сжатия 
-cp -R bash-5.0 /stripe/fs1
-cp -R bash-5.0 /stripe/fs2
-cp -R bash-5.0 /stripe/fs3
-cp -R bash-5.0 /stripe/fs4
-cp -R bash-5.0 /stripe/fs5
+# Копируем распакованный архив (только kernel) для оценки компресии разных алгоритмов сжатия 
+cp -R /kernel_sources/linux-5.10.4/kernel /stripe/fs1/
+cp -R /kernel_sources/linux-5.10.4/kernel /stripe/fs2/
+cp -R /kernel_sources/linux-5.10.4/kernel /stripe/fs3/
+cp -R /kernel_sources/linux-5.10.4/kernel /stripe/fs4/
+cp -R /kernel_sources/linux-5.10.4/kernel /stripe/fs5/
 
 zfs get compression,compressratio
 
 # Результат компресии
+zfs get compression,compressratio
 NAME        PROPERTY       VALUE     SOURCE
 stripe      compression    off       default
-stripe      compressratio  2.08x     -
+stripe      compressratio  2.09x     -
 stripe/fs1  compression    gzip      local
-stripe/fs1  compressratio  3.35x     -
+stripe/fs1  compressratio  3.44x     -
 stripe/fs2  compression    gzip-9    local
-stripe/fs2  compressratio  3.36x     -
+stripe/fs2  compressratio  3.45x     -
 stripe/fs3  compression    lz4       local
-stripe/fs3  compressratio  2.27x     -
+stripe/fs3  compressratio  2.29x     -
 stripe/fs4  compression    lzjb      local
-stripe/fs4  compressratio  1.91x     -
+stripe/fs4  compressratio  1.92x     -
 stripe/fs5  compression    zle       local
-stripe/fs5  compressratio  1.18x     -
+stripe/fs5  compressratio  1.16x     -
 
 # Лучшее сжатие у алгоритма gzip-9
