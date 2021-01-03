@@ -6,6 +6,7 @@ export/import + adjust pools
 
 Лучшее сжатие у gzip-9 (на примере сжатия ядра linux) 
 ```
+zfs get compression,compressratio
 NAME        PROPERTY       VALUE     SOURCE
 stripe      compression    off       default
 stripe      compressratio  2.09x     -
