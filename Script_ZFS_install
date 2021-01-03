@@ -19,3 +19,5 @@ yum repolist --enabled | grep zfs && echo ZFS repo enabled   // проверка
 yum install -y zfs
 modprobe zfs
 
+# Создание пула (stripe из 2 дисков)
+zpool create stripe /dev/sd{a,b}
